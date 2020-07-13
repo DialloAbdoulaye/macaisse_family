@@ -1,0 +1,18 @@
+#grad {
+    background-image: linear-gradient(to bottom right, greenyellow, yellow);
+}#versement {
+    background-image: linear-gradient(to bottom right, blue, dodgerblue);
+}#depense {
+    background-image: linear-gradient(to bottom right, red, darkred);
+}#participant {
+    background-image: linear-gradient(to bottom right, green, lawngreen);
+}
+
+.card {
+    border-radius: 2px;
+    margin: 1rem;
+}
+
+.card:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
