@@ -10,7 +10,7 @@ class User extends Authenticatable
 {
 
     use Notifiable;
-    protected  $fillable = ['firstname','lastname','phone','avatar','active','amande','matricule','montant-amande'];
+    protected  $fillable = ['firstname','lastname','phone','avatar','active','amande','matricule','montant-amande','type_user'];
 
 
     public function transactions(){
@@ -19,6 +19,11 @@ class User extends Authenticatable
 
     public function user(){
         return $this->hasMany('app\Depense');
+    }
+
+
+    public function account(){
+        $this->belongsTo('app\Account');
     }
 
     /**

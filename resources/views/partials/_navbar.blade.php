@@ -9,7 +9,7 @@
                 <a class="nav-link" href="#">Acceuil <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Participants</a>
+                <a class="nav-link" href="{{route('partenaires')}}">Partenaires</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Apropos</a>
