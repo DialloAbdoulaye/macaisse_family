@@ -36,7 +36,6 @@
         <div class="card">
             <div class="card-header">Partenaires</div>
             <div class="card-body">
-                <button class="btn btn-info">add account</button>
             </div>
         </div>
     </div>
@@ -45,6 +44,7 @@
 <script>
     $(function(){
         $('#transactionShow').hide();
+        $('#addPartenaire').hide();
 
         $('#type_transaction').click(function(){
             $('#transactionShow').show();

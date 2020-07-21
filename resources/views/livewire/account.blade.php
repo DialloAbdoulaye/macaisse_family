@@ -25,7 +25,6 @@
                                  <option value="crediter"  class="form-control">Dépot</option>
                              </select>
                              @error('transaction_type') <div class="error alert alert-danger mt-2">{{ $message }}</div> @enderror
-
                          </div>
                          <input type="hidden" class="form-control" value="{{$account_id}}">
                          <input type="text" placeholder="23000" wire:model="transaction_amount" class="form-control">
@@ -59,6 +58,7 @@
            </table>
        </div>
        <div class="col-md-6">
+           @livewire('history-transaction')
            @livewire('partenaire')
        </div>
    </div>

@@ -1,5 +1,5 @@
 <div>
-   <div class="card">
+   <div class="card" id="addPartenaire">
        <div class="card-header text-center bg-info text-light">
            Ajouteer un partenaire
        </div>

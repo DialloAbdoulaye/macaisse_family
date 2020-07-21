@@ -23,6 +23,7 @@
             @endif
             @livewire('dashbord')
             @livewire('create')
+
             @livewire('index')
             @include('partials.modal')
 
