@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::post('/add/transaction','TransactionController@addTransaction')->name('transaction');
 Route::post('/add/minus-montant','TransactionController@minusMontant')->name('retrait');
+Route::get('/detail/user-transactions/{id}','TransactionController@detailOfUserTransaction')->name('detail');
 Route::get('/partenaires',function(){
-    return view('partenaires.acceuil');
+    return view('partenaires.welcome');
 })->name('partenaires');

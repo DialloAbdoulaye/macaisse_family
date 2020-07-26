@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\User;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use App\Comptability;
 
 class Partenaire extends Component
 {
@@ -45,15 +46,19 @@ class Partenaire extends Component
            'type_user'=>'partenaire'
         ]);
        if($add_user){
-          \App\Account::create([
+        $add_account=  \App\Account::create([
                'account_number'=>Str::random(5).$add_user->id,
                'transaction_type'=>'depot',
                'balance'=>$this->amount,
                'user_id'=>$add_user->id,
                'amount'=>$this->amount
            ]);
+          Comptability::create([
+                "transaction_amount"=>$this->amount,
+                 'type_transaction'=>'crediter',
+                 'account_id'=>$add_account->id,
+          ]);
        }
-
         session()->flash('success','partenaire ajouté  avec succès!');
         $this->refresh();
     }

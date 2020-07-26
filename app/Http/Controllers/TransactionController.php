@@ -7,6 +7,7 @@ use App\Transaction_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use App\Account;
 
 class TransactionController extends Controller
 {
@@ -52,4 +53,33 @@ class TransactionController extends Controller
 
         return redirect('/');
     }
+
+    public function detailOfUserTransaction($id){
+        $userAccount =DB::table('accounts')->where('accounts.id',$id)
+                            ->join('users','accounts.user_id','=','users.id')
+                            ->first();
+
+        $allTransactions = DB::table('accounts')
+            ->where('accounts.id',$id)
+            ->join('comptabilities','accounts.id','=','comptabilities.account_id')
+            ->orderBy('comptabilities.created_at','desc')
+            ->paginate(3);
+
+
+        $totalOfDebit =DB::table('accounts')
+            ->where('accounts.id',$id)
+            ->join('comptabilities','accounts.id','=','comptabilities.account_id')
+            ->where('type_transaction','debiter')
+            ->sum('transaction_amount');
+
+        $totalOfCredit =DB::table('accounts')
+            ->where('accounts.id',$id)
+            ->join('comptabilities','accounts.id','=','comptabilities.account_id')
+            ->where('type_transaction','crediter')
+            ->sum('transaction_amount');
+
+        return view('partenaires.detail',compact('userAccount','allTransactions','totalOfDebit','totalOfCredit'));
+    }
+
+
 }

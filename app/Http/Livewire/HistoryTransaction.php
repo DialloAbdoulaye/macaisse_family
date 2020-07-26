@@ -12,6 +12,6 @@ class HistoryTransaction extends Component
 
     public function render()
     {
-        return view('livewire.history-transaction',['transactions'=>Comptability::paginate(3)]);
+        return view('livewire.history-transaction',['transactions'=>Comptability::paginate(5)]);
     }
 }

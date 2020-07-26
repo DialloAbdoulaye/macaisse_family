@@ -15,41 +15,23 @@
 </head>
 <body>
 @include('partials._navbar')
-<div class="row">
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-header">Confits</div>
-            <div class="card-body"></div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-header">Retraits</div>
-            <div class="card-body"></div>
-        </div>
-    </div>
-    <div class="col-md-3"><div class="card">
-            <div class="card-header">Banques</div>
-            <div class="card-body"></div>
-        </div></div>
-    <div class="col-md-3">
-        <div class="card">
-            <div class="card-header">Partenaires</div>
-            <div class="card-body">
-            </div>
-        </div>
-    </div>
+
+<div class="container">
+    @yield('content')
 </div>
-@livewire('account')
 <script>
     $(function(){
         $('#transactionShow').hide();
-        $('#addPartenaire').hide();
+       // $('#addPartenaire').hide();
 
         $('#type_transaction').click(function(){
             $('#transactionShow').show();
         });
 
+        $("#showDetail").click(function(){
+            $('#welcome').hide();
+            alert("dddddddddd");
+        })
     })
 
 </script>
