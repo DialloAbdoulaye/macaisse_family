@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Depense;
 use App\Transaction;
 use App\Transaction_user;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -79,6 +80,17 @@ class TransactionController extends Controller
             ->sum('transaction_amount');
 
         return view('partenaires.detail',compact('userAccount','allTransactions','totalOfDebit','totalOfCredit'));
+    }
+
+    public function printAllTransaction($id){
+        $my_transactions = DB::table('accounts')
+            ->where('accounts.id',$id)
+            ->join('comptabilities','accounts.id','=','comptabilities.account_id')
+            ->orderBy('comptabilities.created_at','desc')
+            ->get();
+          $pdf = PDF::loadView('partenaires.print',['transactions'=>$my_transactions]);
+          return $pdf->download('my_tranactions.pdf');
+
     }
 
 

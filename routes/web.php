@@ -24,3 +24,5 @@ Route::get('/detail/user-transactions/{id}','TransactionController@detailOfUserT
 Route::get('/partenaires',function(){
     return view('partenaires.welcome');
 })->name('partenaires');
+
+Route::get('print/all/transaction/{id}','TransactionController@printAllTransaction')->name('print');

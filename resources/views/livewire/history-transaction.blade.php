@@ -1,19 +1,20 @@
 <div>
-      <div class="container">
+    @if($transactions->count()>0)
+        <div class="container">
             <div class="card" id="transactions">
-            <div class="card-header">
-              <h3>La liste des transations</h3>
-            </div>
-            <div class="body">
-                <table class="table table-bordered">
-                    <thead class="bg-primary text-light">
-                    <tr>
-                        <th scope="col">Type de transaction</th>
-                        <th scope="col">Montant</th>
-                        <th scope="col">Date </th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                <div class="card-header">
+                    <h3>La liste des transations</h3>
+                </div>
+                <div class="body">
+                    <table class="table table-bordered">
+                        <thead class="bg-primary text-light">
+                        <tr>
+                            <th scope="col">Type de transaction</th>
+                            <th scope="col">Montant</th>
+                            <th scope="col">Date </th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         @foreach($transactions as $transaction)
                             @if($transaction->type_transaction=="debiter")
                                 <tr>
@@ -37,12 +38,13 @@
                             @endif
 
                         @endforeach
-                    </tbody>
-                </table>
-                {{$transactions->links()}}
+                        </tbody>
+                    </table>
+                    {{$transactions->links()}}
 
+                </div>
             </div>
+            <div class="col-md-6"></div>
         </div>
-        <div class="col-md-6"></div>
-      </div>
+    @endif
 </div>

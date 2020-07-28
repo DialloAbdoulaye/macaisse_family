@@ -28,10 +28,10 @@
             $('#transactionShow').show();
         });
 
-        $("#showDetail").click(function(){
-            $('#welcome').hide();
-            alert("dddddddddd");
-        })
+        // $("#showDetail").click(function(){
+        //     $('#welcome').hide();
+        //     alert("dddddddddd");
+        // })
     })
 
 </script>

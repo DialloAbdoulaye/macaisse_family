@@ -9,14 +9,40 @@
          <div class="card-body">
              <div class="row">
                  <div class="col-md-6">
-                     <p>Nom et Prenom: <span class="bg-info text-light">{{$userAccount->firstname.' '. $userAccount->lastname}}</span></p>
-                     <hr>
-                     <p >Phone: <span class="bg-info text-light">{{$userAccount->phone}}</span></p>
-                     <hr>
-                     <p>matricule: <span class="bg-info text-light">{{$userAccount->matricule}}</span> </p>
-                     <hr>
-                     <p>Account number:  <span class="bg-info text-light">{{$userAccount->account_number}}</span></p>
-                 </div>
+                <div class="card">
+                    <div class="card-header bg-primary text-light">
+                        <h4>Informations personnelles</h4>
+                    </div>
+                    <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-6"><h6>Nom et Prenom</h6> </div>
+                                <div class="col-md-6">
+                                    <span class="bg-info text-light">{{$userAccount->firstname.' '. $userAccount->lastname}}</span></div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6"><h6>Phone</h6> </div>
+                                <div class="col-md-6">
+                                    <span class="bg-info text-light">{{$userAccount->phone}}</span></div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6"><h6>Matricule</h6> </div>
+                                <div class="col-md-6">
+                                    <span class="bg-info text-light">{{$userAccount->matricule}}</span></div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6"><h6>numero du compte</h6> </div>
+                                <div class="col-md-6">
+                                    <span class="bg-info text-light">{{$userAccount->account_number}}</span></div>
+                            </div>
+                            <hr>
+
+                        </div>
+                </div>
+             </div>
                  <div class="col-md-6">
                      <table class="table table-bordered text-center table-striped table-sm">
                          <thead>
@@ -74,11 +100,11 @@
                          </div>
 
                          <div class="modal-footer">
-                             <button type="button" class="btn btn-primary"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-printer-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                             <a href="{{route('print',['id'=>$userAccount->id])}}" class="btn btn-primary"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-printer-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                      <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5z"/>
                                      <path fill-rule="evenodd" d="M11 9H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
                                      <path fill-rule="evenodd" d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
-                                 </svg></button>
+                                 </svg></a>
                          </div>
                      </div>
                  </div>

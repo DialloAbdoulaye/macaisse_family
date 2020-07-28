@@ -20,9 +20,8 @@ class Account extends Component
 
     public function render()
     {
-        $allAccount = \App\Account::all();
         return view('livewire.account',[
-            'allAccount'=>$allAccount
+            'allAccount'=>\App\Account::paginate(5)
         ]);
     }
 
